@@ -104,8 +104,8 @@
 <body>
 
 <div class="header">
-    <h1>Wholesale Clothing ERP System</h1>
-    <p>Inventory & Product Management</p>
+    <h1>Wholesale Clothing ERP System v2.0</h1>
+    <p>Cloud Based ERP, CRM and WMS Platform</p>
 </div>
 
 <div class="dashboard">
@@ -121,7 +121,22 @@
     </div>
 
     <div class="card">
-        <h2>Warehouse</h2>
+        <h2>Total Customers</h2>
+        <div class="number">56</div>
+    </div>
+
+    <div class="card">
+        <h2>Total Orders</h2>
+        <div class="number">125</div>
+    </div>
+
+    <div class="card">
+        <h2>Revenue</h2>
+        <div class="number">$12,500</div>
+    </div>
+
+    <div class="card">
+        <h2>Warehouse Status</h2>
         <div class="number">Active</div>
     </div>
 
@@ -129,7 +144,7 @@
 
 <div class="form-section">
 
-    <h2>Add Product</h2>
+    <h2>ERP - Product Management</h2>
 
     <input type="number" id="id" placeholder="Product ID">
     <input type="text" id="name" placeholder="Product Name">
@@ -148,12 +163,126 @@
         </tr>
         </thead>
 
-        <tbody id="productTable">
+        <tbody id="productTable"></tbody>
+    </table>
+
+</div>
+
+<div class="form-section">
+
+    <h2>CRM - Customer Management</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>Fashion Store</td>
+            <td>fashion@gmail.com</td>
+            <td>+998901112233</td>
+            <td>VIP</td>
+        </tr>
+
+        <tr>
+            <td>Style Market</td>
+            <td>style@gmail.com</td>
+            <td>+998907778899</td>
+            <td>Active</td>
+        </tr>
+
+        <tr>
+            <td>Trend House</td>
+            <td>trend@gmail.com</td>
+            <td>+998909999888</td>
+            <td>Premium</td>
+        </tr>
         </tbody>
     </table>
 
 </div>
 
+<div class="form-section">
+
+    <h2>WMS - Warehouse Management</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Location</th>
+            <th>Product</th>
+            <th>Stock</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>A1</td>
+            <td>T-Shirt</td>
+            <td>100</td>
+        </tr>
+
+        <tr>
+            <td>B2</td>
+            <td>Jeans</td>
+            <td>50</td>
+        </tr>
+
+        <tr>
+            <td>C3</td>
+            <td>Jacket</td>
+            <td>30</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div class="form-section">
+
+    <h2>Order Management</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Amount</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>1001</td>
+            <td>Fashion Store</td>
+            <td>$1200</td>
+            <td>Delivered</td>
+        </tr>
+
+        <tr>
+            <td>1002</td>
+            <td>Style Market</td>
+            <td>$850</td>
+            <td>Processing</td>
+        </tr>
+
+        <tr>
+            <td>1003</td>
+            <td>Trend House</td>
+            <td>$650</td>
+            <td>Pending</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
 <script>
 
     let products = [
