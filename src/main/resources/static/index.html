@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wholesale Clothing ERP</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:#f4f7fc;
+        }
+
+        .header{
+            background:#1e3a5f;
+            color:white;
+            padding:20px;
+            text-align:center;
+        }
+
+        .dashboard{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:20px;
+            padding:20px;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            border-radius:15px;
+            box-shadow:0 4px 10px rgba(0,0,0,.1);
+        }
+
+        .card h2{
+            color:#1e3a5f;
+            margin-bottom:10px;
+        }
+
+        .number{
+            font-size:30px;
+            font-weight:bold;
+            color:#27ae60;
+        }
+
+        .form-section{
+            margin:20px;
+            background:white;
+            padding:20px;
+            border-radius:15px;
+            box-shadow:0 4px 10px rgba(0,0,0,.1);
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            margin:10px 0;
+            border:1px solid #ccc;
+            border-radius:8px;
+        }
+
+        button{
+            background:#1e3a5f;
+            color:white;
+            border:none;
+            padding:12px 20px;
+            border-radius:8px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#16304d;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:20px;
+        }
+
+        th{
+            background:#1e3a5f;
+            color:white;
+        }
+
+        th,td{
+            padding:12px;
+            border:1px solid #ddd;
+            text-align:center;
+        }
+
+        tr:nth-child(even){
+            background:#f8f8f8;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Wholesale Clothing ERP System</h1>
+    <p>Inventory & Product Management</p>
+</div>
+
+<div class="dashboard">
+
+    <div class="card">
+        <h2>Total Products</h2>
+        <div class="number" id="productCount">3</div>
+    </div>
+
+    <div class="card">
+        <h2>Total Stock</h2>
+        <div class="number" id="stockCount">180</div>
+    </div>
+
+    <div class="card">
+        <h2>Warehouse</h2>
+        <div class="number">Active</div>
+    </div>
+
+</div>
+
+<div class="form-section">
+
+    <h2>Add Product</h2>
+
+    <input type="number" id="id" placeholder="Product ID">
+    <input type="text" id="name" placeholder="Product Name">
+    <input type="number" id="price" placeholder="Price">
+    <input type="number" id="quantity" placeholder="Quantity">
+
+    <button onclick="addProduct()">Add Product</button>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        </thead>
+
+        <tbody id="productTable">
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+
+    let products = [
+        {id:1,name:"T-Shirt",price:10,quantity:100},
+        {id:2,name:"Jeans",price:25,quantity:50},
+        {id:3,name:"Jacket",price:40,quantity:30}
+    ];
+
+    function renderProducts(){
+
+        let table="";
+
+        let totalStock=0;
+
+        products.forEach(p=>{
+
+            totalStock += Number(p.quantity);
+
+            table += `
+        <tr>
+            <td>${p.id}</td>
+            <td>${p.name}</td>
+            <td>$${p.price}</td>
+            <td>${p.quantity}</td>
+        </tr>
+        `;
+        });
+
+        document.getElementById("productTable").innerHTML = table;
+        document.getElementById("productCount").innerText = products.length;
+        document.getElementById("stockCount").innerText = totalStock;
+    }
+
+    function addProduct(){
+
+        let product = {
+            id:document.getElementById("id").value,
+            name:document.getElementById("name").value,
+            price:document.getElementById("price").value,
+            quantity:document.getElementById("quantity").value
+        };
+
+        products.push(product);
+
+        renderProducts();
+
+        document.getElementById("id").value="";
+        document.getElementById("name").value="";
+        document.getElementById("price").value="";
+        document.getElementById("quantity").value="";
+    }
+
+    renderProducts();
+
+</script>
+
+</body>
+</html>
